@@ -23,7 +23,7 @@ const Nav = () => {
     <div className={classes.root}>
       <AppBar className={classes.nav} position="static">
         <Toolbar>
-          <img className={classes.logo} src="../../../logo.jpg" alt="logo" />
+          <img className='logo' src="../../../logo.jpg" alt="logo" />
           <Typography variant="h6" className={classes.title}>
             Welcome Rebel!
           </Typography>
@@ -43,10 +43,6 @@ const useStyles = makeStyles({
   title: {
     flexGrow: 1,
     color: "black",
-  },
-  logo: {
-    width: "3%",
-    paddingRight: 20,
   },
   button: {
     marginRight: 15,
