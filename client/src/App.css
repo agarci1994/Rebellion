@@ -1,0 +1,55 @@
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+body {
+    background-color: rgb(47, 47, 47);
+}
+
+.main {
+    padding-top: 20px;
+    background-color: #f5ff00;
+    padding-bottom: 20px;
+    display: flex
+}
+
+.title {
+    background-color: rgb(47, 47, 47);
+    padding: 30px;
+    color: #f39;
+    margin: 20px;
+    position: absolute;
+}
+
+.title-img {
+    color: rgb(54, 162, 235);
+    margin: 20px;
+    position: absolute;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    ;
+}
+
+.content img {
+    margin-top: 100px;
+    margin-left: 30px;
+    width: 350px
+}
+
+.content-image {
+    margin-left: 50px;
+    display: flex;
+}
+
+.content-size {
+    background-color: #f39;
+    padding: 70px;
+}
+
+.text-size {
+    color: rgb(47, 47, 47);
+}
