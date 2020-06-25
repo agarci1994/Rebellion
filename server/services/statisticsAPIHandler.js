@@ -1,14 +1,11 @@
+// Axios
+const axios = require('axios').default
+
 // Env
 const CLOUD_NAME = process.env.CLOUD_NAME
 const API_KEY = process.env.API_KEY
 const API_SECRET = process.env.API_SECRET
-// Axios
-const axios = require('axios').default
 
-
-
-// I tried to extract the data here but the following bug was generated: 
-// when I reloaded the page the files were duplicated.
 
 class cloudinaryAPIHandler {
   constructor() {
@@ -17,8 +14,21 @@ class cloudinaryAPIHandler {
     })
   }
 
-  getImage = (nextPage) => nextPage ? this.axiosApp.get(`/resources/image?max_results=500&next_cursor=${nextPage}`) :
-    this.axiosApp.get(`/resources/image?max_results=500`)
+// Get data from the Cloudinary Admin API
+  getImage = (nextPage) => {
+    const storageImage = []
+
+    return nextPage ? this.axiosApp.get(`/resources/image?max_results=500&next_cursor=${nextPage}`) :
+      this.axiosApp.get(`/resources/image?max_results=500`)
+      .then(response => {
+        storageImage.push(response.data.resources)
+        return response.data.next_cursor && this.getImage(response.data.next_cursor)
+      })
+      .then(response => {
+        response && storageImage.push(response.data.resources)
+        return storageImage
+      })
+  }
 }
 
 module.exports = cloudinaryAPIHandler;

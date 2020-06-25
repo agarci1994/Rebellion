@@ -13,7 +13,7 @@ const Statistic = () => {
   const [doughnutOptions, setDoughnut] = useState([]);
   const [lineOptions, setLine] = useState([]);
   const [error, setError] = useState();
-
+console.log(data)
   useEffect(() => viewStatistic(), []);
 
   // Configs Charts

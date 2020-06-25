@@ -1,7 +1,10 @@
 const getStatistic = allImages => {
 
+// Variable
     let biggestSizePicture
+    let smallestSizePicture
 
+ // Format   
     const infoImages = {
         totalImages: allImages.length,
         formats: {},
@@ -11,6 +14,8 @@ const getStatistic = allImages => {
         allSize: []
     }
 
+
+// Functions
     const counterPictureForFormat = () => {
         allImages.forEach(({
             format
@@ -20,19 +25,18 @@ const getStatistic = allImages => {
     }
 
     const searchBiggestPicture = () => {
-        let biggestSize = 0
+        biggestSizePicture = 0
         let biggestPicture
 
-        allImages.forEach(elm => (elm.width * elm.height) > biggestSize && (biggestSize = elm.width * elm.height) && (biggestPicture = elm))
+        allImages.forEach(elm => (elm.width * elm.height) > biggestSizePicture && (biggestSizePicture = elm.width * elm.height) && (biggestPicture = elm))
         infoImages.biggestPicture = biggestPicture.url
-        biggestSizePicture = biggestSize
     }
 
     const searchSmallestPicture = () => {
-        let smallestSize = biggestSizePicture
+        smallestSizePicture = biggestSizePicture
         let smallestPicture
 
-        allImages.forEach(elm => (elm.width * elm.height) < smallestSize && (biggestSize = elm.width * elm.height) && (smallestPicture = elm))
+        allImages.forEach(elm => (elm.width * elm.height) < smallestSizePicture && (biggestSizePicture = elm.width * elm.height) && (smallestPicture = elm))
         infoImages.smallestPicture = smallestPicture.url
     }
 
