@@ -3,7 +3,7 @@
 Cloudinary information board
 </h2>
 
-<p align="center"><img src="https://ibb.co/LQHR67B" /></a></p>
+<p align="center"><img src="https://i.ibb.co/Jxgt2J8/Screenshot-2020-06-25-at-09-05-07.png" /></a></p>
 
 ## About the project
 
