@@ -11,7 +11,6 @@ require('./configs/middleware.config')(app)
 require('./configs/locals.config')(app)
 require('./configs/session.config')(app)
 
-
 // Base URLS
 app.use('/api/cloudinary', require('./routes/cloudinary.routes'))
       

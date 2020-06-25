@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 
+// Services
 import { getStatistics } from "../services/cloudinary.services";
+// Components
 import TotalImage from "./Sections/TotalImage";
 import SizePicture from "./Sections/SizePicture";
 import Picture from "./Sections/Pictures";
 
 const Statistic = () => {
+  // State
   const [data, setData] = useState();
   const [doughnutOptions, setDoughnut] = useState([]);
   const [lineOptions, setLine] = useState([]);
+  const [error, setError] = useState();
 
+  useEffect(() => viewStatistic(), []);
+
+  // Configs Charts
   const createOptionsDoughnut = (data) => {
     const chart = {
       labels: Object.keys(data.formats),
@@ -49,10 +56,10 @@ const Statistic = () => {
         },
       ],
     };
-
     setLine(chart);
   };
 
+  // Service
   const viewStatistic = async () => {
     try {
       const data = await getStatistics();
@@ -60,18 +67,23 @@ const Statistic = () => {
       createOptionsLine(data);
       setData(data);
     } catch (error) {
-      console.log(error);
+      setError("Upps! I am a mistake, we will solve it as soon as possible");
     }
   };
-  useEffect(() => viewStatistic(), []);
 
   return (
     <div className="margin">
-      <TotalImage data={data} doughnutOptions={doughnutOptions}/>
-      <div className="content">
-        <Picture data={data}/>
-        {data && <SizePicture data={data} lineOptions={lineOptions} />}
-      </div>
+      {error ? (
+        <h1 style={{color: "white"}}>{error}</h1>
+      ) : (
+        <>
+          <TotalImage data={data} doughnutOptions={doughnutOptions} />
+          <div className="content">
+            <Picture data={data} />
+            {data && <SizePicture data={data} lineOptions={lineOptions} />}
+          </div>
+        </>
+      )}
     </div>
   );
 };

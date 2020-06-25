@@ -1,15 +1,22 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+
+// Services
+import { getCSV } from "../../services/cloudinary.services";
+// NPM
+import download from "downloadjs";
+// Material UI
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import { getCSV } from "../../services/cloudinary.services";
-import download from "downloadjs";
+// Styles
+import { makeStyles } from "@material-ui/core/styles";
+
 
 const Nav = () => {
   const classes = useStyles();
 
+  // Services
   const downloadCSV = async () => {
     try {
       let CSV = await getCSV();
@@ -20,7 +27,7 @@ const Nav = () => {
   }
 
   return (
-    <div className={classes.root}>
+    <div>
       <AppBar className={classes.nav} position="static">
         <Toolbar>
           <img className='logo' src="../../../logo.jpg" alt="logo" />
@@ -33,10 +40,8 @@ const Nav = () => {
     </div>
   );
 }
+
 const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-  },
   nav: {
     backgroundColor: "white",
   },

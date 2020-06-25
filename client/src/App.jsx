@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-//Components
+// Components
 import Nav from "./components/UI/Nav";
 import Statistics from './components/Statistics'
 // CSS
