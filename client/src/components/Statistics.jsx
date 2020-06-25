@@ -14,7 +14,7 @@ const Statistic = () => {
   const [lineOptions, setLine] = useState([]);
   const [error, setError] = useState();
 
-  useEffect(() => viewStatistic(), []);
+  useEffect(() => {viewStatistic()});
 
   // Configs Charts
   const createOptionsDoughnut = (data) => {

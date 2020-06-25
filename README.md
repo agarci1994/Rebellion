@@ -13,6 +13,8 @@ We receive the total images stored in cloudinary and statistics of the data rece
 
 The project has been built with React and Chartjs for the front-end and Node for the back-end
 
+You can try it here: [https://rebellion-cloudinary.herokuapp.com/]
+
 ### Installation
 
 If you wish to look at the project in detail or even work something upon it, feel free to clone the repository:
