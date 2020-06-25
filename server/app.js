@@ -11,6 +11,9 @@ require('./configs/locals.config')(app)
 
 // Base URLS
 app.use('/api/cloudinary', require('./routes/cloudinary.routes'))
-      
 
+app.use((req, res) => {
+    res.sendFile(__dirname + "/public/index.html");
+});
+      
 module.exports = app;
